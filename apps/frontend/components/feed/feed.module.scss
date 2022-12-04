@@ -1,0 +1,28 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+.container {
+  background-color: lightblue;
+  flex-grow: 15;
+  flex-shrink: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+}
+
+.feedContainer {
+  display: flex;
+  width: 100%;
+}
+
+.tweetForm {
+  width: 100%;
+}
+
+.formFooter {
+  display:flex;
+}
