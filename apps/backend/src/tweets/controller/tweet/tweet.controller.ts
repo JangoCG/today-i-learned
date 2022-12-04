@@ -2,7 +2,7 @@ import {Body, Controller, Get, Post} from '@nestjs/common';
 import {CreateTweetDto} from "@twitter-clone/types";
 
 
-@Controller('tweet')
+@Controller('tweets')
 export class TweetController {
 
   @Post()
