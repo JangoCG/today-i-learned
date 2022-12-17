@@ -1,5 +1,5 @@
 {
-  "name": "twitter-clone",
+  "name": "today-i-learned",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -13,13 +13,11 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
-    "@mantine/core": "^5.9.0",
-    "@mantine/hooks": "^5.9.0",
-    "@mantine/next": "^5.9.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/typeorm": "^9.0.1",
+    "@next/font": "^13.0.7",
     "@nrwl/next": "15.2.4",
     "axios": "^1.2.0",
     "core-js": "^3.6.5",
@@ -28,8 +26,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.40.0",
+    "react-markdown": "^8.0.4",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
+    "rehype-highlight": "^6.0.0",
     "rxjs": "^7.0.0",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.11"

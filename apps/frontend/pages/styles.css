@@ -9,13 +9,13 @@ html {
 }
 body {
   --twitter-blue: #50b7f5;
-
-
-
 }
 .app {
   display: flex;
-  width: 100%;
+  flex-direction: column;
   height: 100vh;
-  background-color: lightgoldenrodyellow;
+  padding-right:60px;
+  padding-left: 60px;
+  padding-bottom: 20px;
+  background-color: white;
 }

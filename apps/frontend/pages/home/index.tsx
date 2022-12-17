@@ -1,7 +1,6 @@
-import Sidebar from "../../components/sidebar/sidebar"
 import Feed, {FeedForm} from "../../components/feed/feed";
-import Trends from "../../components/trends/trends";
 import {createTweet} from "../../services/tweetService";
+import Header from "../../components/header/header";
 
 /* eslint-disable-next-line */
 export interface HomeProps {
@@ -18,9 +17,9 @@ export function Home(props: HomeProps) {
 
   return (
     <>
-      <Sidebar/>
+
+      <Header />
       <Feed createTweet={onCreateTweetClick}/>
-      <Trends/>
 
     </>
   );

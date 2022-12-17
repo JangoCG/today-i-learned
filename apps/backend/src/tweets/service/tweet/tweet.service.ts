@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
 import {Tweet} from "../../model/Tweet";
 import {Repository} from "typeorm";
-import {CreateTweetDto} from "@twitter-clone/types";
+import {CreateTweetDto} from "@today-i-learned/types";
 
 @Injectable()
 export class TweetService {

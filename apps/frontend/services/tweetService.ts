@@ -1,4 +1,4 @@
-import {CreateTweetDto} from "@twitter-clone/types";
+import {CreateTweetDto} from "@today-i-learned/types";
 import httpClient from "../utils/http-client/axios";
 
 export const createTweet = (data: CreateTweetDto) => {

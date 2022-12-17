@@ -1,5 +1,5 @@
 import {Body, Controller, Get, Post} from '@nestjs/common';
-import {CreateTweetDto} from "@twitter-clone/types";
+import {CreateTweetDto} from "@today-i-learned/types";
 import {TweetService} from "../../service/tweet/tweet.service";
 
 
