@@ -1,9 +1,9 @@
 import {AppProps} from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import {Bebas_Neue} from '@next/font/google'
+import {Fira_Code} from '@next/font/google'
 
-const bebas = Bebas_Neue({
+const firaCodeFont = Fira_Code({
   subsets: ['latin'],
   weight: '400'
 })
@@ -14,7 +14,7 @@ function CustomApp({Component, pageProps}: AppProps) {
       <Head>
         <title>Welcome to frontend!</title>
       </Head>
-      <main className={`${bebas.className} app`}>
+      <main className={`${firaCodeFont.className} app`}>
         <Component {...pageProps} />
       </main>
     </>

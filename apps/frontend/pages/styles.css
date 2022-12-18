@@ -14,8 +14,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding-right:60px;
-  padding-left: 60px;
+  padding-right:200px;
+  padding-left: 200px;
   padding-bottom: 20px;
   background-color: white;
 }
