@@ -1,6 +1,7 @@
-import {useForm} from 'react-hook-form';
 import Card from "../card/card";
 import styles from "./feed.module.scss"
+import Editor from "../editor/editor";
+import {useRouter} from 'next/router';
 
 export interface FeedProps {
   createTweet: (data: unknown) => void
@@ -72,13 +73,17 @@ ReactDOM.render(
 )
 ~~~`
 export function Feed({createTweet}: FeedProps) {
-  const {register, handleSubmit} = useForm();
-  const onSubmit = (data: FeedForm) => {
-    createTweet(data);
+  const router = useRouter();
+
+  const navigateToCreateNewTilPage = () => {
+    router.push('/create')
   }
   return (
     <>
       <div className={styles.container}>
+        <h1>share your new knowledge <br /> Someone out there needs it</h1>
+        <button onClick={navigateToCreateNewTilPage}>Create new TIL</button>
+        <Editor />
         <Card title={"this is the title"} markdown={mockMarkDown3} />
         <Card title={"some tutorial xoxo bla"} markdown={mockMarkDown1} />
         <Card title={"Another card"} markdown={mockMarkDown2}/>

@@ -6,6 +6,9 @@ html {
   line-height: 1.5;
   tab-size: 4;
   scroll-behavior: smooth;
+  ::selection {
+    background-color: #ffff00;
+  }
 }
 body {
   --twitter-blue: #50b7f5;

@@ -1,6 +1,6 @@
 import {AppProps} from 'next/app';
 import Head from 'next/head';
-import './styles.css';
+import './styles.scss';
 import {Fira_Code} from '@next/font/google'
 import 'highlight.js/styles/atom-one-dark.css'
 
