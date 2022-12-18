@@ -44,7 +44,7 @@ end
 ~~~
 `
 
-const mockMarkDown2 =  `
+const mockMarkDown2 = `
 # Find Unused Cucumber Step Definitions
 
 One of the challenges of using cucumber is properly managing your step definitions. Left unchecked, you will eventually have many unused steps. It's extremely cumbersome to prune these manually. Luckily, you can use cucumber's \`-f / --format\` flag to get feedback on unused step_definitions and their locations:
@@ -72,6 +72,7 @@ ReactDOM.render(
   document.querySelector('#content')
 )
 ~~~`
+
 export function Feed({createTweet}: FeedProps) {
   const router = useRouter();
 
@@ -81,11 +82,16 @@ export function Feed({createTweet}: FeedProps) {
   return (
     <>
       <div className={styles.container}>
-        <h1>share your new knowledge <br /> Someone out there needs it</h1>
-        <button onClick={navigateToCreateNewTilPage}>Create new TIL</button>
-        <Editor />
-        <Card title={"this is the title"} markdown={mockMarkDown3} />
-        <Card title={"some tutorial xoxo bla"} markdown={mockMarkDown1} />
+        <div className={styles.ctaContainer}>
+          <h1 className={styles.ctaText}>Share your new knowledge. <br/>
+            Someone out there will need it.
+          </h1>
+          <button className={styles.createTilBtn} onClick={navigateToCreateNewTilPage}>Create a new TIL</button>
+        </div>
+
+        <Editor/>
+        <Card title={"this is the title"} markdown={mockMarkDown3}/>
+        <Card title={"some tutorial xoxo bla"} markdown={mockMarkDown1}/>
         <Card title={"Another card"} markdown={mockMarkDown2}/>
       </div>
     </>

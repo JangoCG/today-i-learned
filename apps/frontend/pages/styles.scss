@@ -7,11 +7,14 @@ html {
   tab-size: 4;
   scroll-behavior: smooth;
   ::selection {
-    background-color: #ffff00;
+    background-color: var(--til-accent-color)
   }
+  input, textarea, button {font-family: inherit}
+
 }
 body {
   --twitter-blue: #50b7f5;
+  --til-accent-color: #ffff00;
 }
 .app {
   display: flex;
