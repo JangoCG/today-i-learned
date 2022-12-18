@@ -12,6 +12,7 @@ export function Card({title, markdown}: CardProps) {
   return (
     <div className={styles.container}>
       <div>
+        {/*TODO: Look into code mirror as an editor to create the posts*/}
         <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
           {markdown}
         </ReactMarkdown>

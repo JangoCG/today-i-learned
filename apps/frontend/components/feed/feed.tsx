@@ -48,19 +48,19 @@ const mockMarkDown2 =  `
 
 One of the challenges of using cucumber is properly managing your step definitions. Left unchecked, you will eventually have many unused steps. It's extremely cumbersome to prune these manually. Luckily, you can use cucumber's \`-f / --format\` flag to get feedback on unused step_definitions and their locations:
 
-\`\`\`
+~~~bash
 bundle exec cucumber --dry-run --format=stepdefs
-\`\`\`
+~~~
 
 If your step definition is unused, it will be annotated with a line under that says \`NOT MATCHED BY ANY STEPS\`. See the example -
-\`\`\`
+~~~shell
 /^I submit the proposal request form$/     # features/step_definitions/contact_steps.rb:39
   NOT MATCHED BY ANY STEPS
-\`\`\`
+~~~
 `
 
 const mockMarkDown3 = `
-~~~
+~~~js
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactMarkdown from 'react-markdown'
