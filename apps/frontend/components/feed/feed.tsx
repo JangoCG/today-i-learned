@@ -1,6 +1,5 @@
 import Card from "../card/card";
 import styles from "./feed.module.scss"
-import Editor from "../editor/editor";
 import {useRouter} from 'next/router';
 
 export interface FeedProps {
@@ -11,6 +10,48 @@ export interface FeedForm {
   tweet: string;
 }
 
+const mockMarkdown = `
+To embed the contents of an SVG file into your site using NextJS 12 with the new Rust-based compiler, perform the following steps:
+
+1. Install \`@svg/webpack\`:
+
+
+
+2. Create a \`svgr.config.js\` config file with the following contents. This will remove the width and height from the SVG but keep the viewBox for correct scaling.
+
+\`\`\`js
+module.exports = {
+  dimensions: false,
+};
+\`\`\`
+
+4. Add to your webpack config in \`next.config.js\`
+\`\`\`js
+module.exports = {
+  webpack(config) {
+    const fileLoaderRule = config.module.rules.find(
+      (rule) => rule.test && rule.test.test('.svg'),
+    );
+    fileLoaderRule.exclude = /\\.svg$/;
+    config.module.rules.push({
+      test: /\\.svg$/,
+      loader: require.resolve('@svgr/webpack'),
+    });
+    return config;
+  },
+};
+\`\`\`
+
+
+4. Import SVG into component
+\`\`\`js
+import Logo from 'public/images/logo.svg';
+\`\`\`
+
+5. Use the Component
+\`\`\`js
+<Logo className="h-8 w-auto sm:h-10" alt="Site Title" />
+\`\`\``
 const mockMarkDown1 = `
 
 # Ruby memoization with nil values
@@ -45,18 +86,17 @@ end
 `
 
 const mockMarkDown2 = `
-# Find Unused Cucumber Step Definitions
+# What is  <Component {…props} />
+~~~js
+// These two are equivalent
+function App1() {
+  return <Greeting firstName="Ben" lastName="Hector" />;
+}
 
-One of the challenges of using cucumber is properly managing your step definitions. Left unchecked, you will eventually have many unused steps. It's extremely cumbersome to prune these manually. Luckily, you can use cucumber's \`-f / --format\` flag to get feedback on unused step_definitions and their locations:
-
-~~~bash
-bundle exec cucumber --dry-run --format=stepdefs
-~~~
-
-If your step definition is unused, it will be annotated with a line under that says \`NOT MATCHED BY ANY STEPS\`. See the example -
-~~~shell
-/^I submit the proposal request form$/     # features/step_definitions/contact_steps.rb:39
-  NOT MATCHED BY ANY STEPS
+function App2() {
+  const props = {firstName: 'Ben', lastName: 'Hector'};
+  return <Greeting {...props} />;
+}
 ~~~
 `
 
@@ -88,29 +128,11 @@ export function Feed({createTweet}: FeedProps) {
           </h1>
           <button className={styles.createTilBtn} onClick={navigateToCreateNewTilPage}>Create a new TIL</button>
         </div>
-
-        <Editor/>
         <Card title={"this is the title"} markdown={mockMarkDown3}/>
-        <Card title={"some tutorial xoxo bla"} markdown={mockMarkDown1}/>
+        <Card title={"some tutorial xoxo mockMarkdown"} markdown={mockMarkdown}/>
         <Card title={"Another card"} markdown={mockMarkDown2}/>
       </div>
     </>
-
-    // <div className={styles.container}>
-    //   <div className={styles.feedContainer}>
-    //     <Avatar color="cyan" radius="xl">CG</Avatar>
-    //     <form onSubmit={handleSubmit(onSubmit)} className={styles.tweetForm}>
-    //
-    //       <Input  {...register("tweet")} className={styles.tweetInput}></Input>
-    //       <div className={styles.formFooter}>
-    //         <Button ml="auto" type="submit">Tweet</Button>
-    //
-    //       </div>
-    //     </form>
-    //
-    //
-    //   </div>
-    // </div>
   );
 }
 

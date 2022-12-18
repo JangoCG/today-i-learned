@@ -1,23 +1,29 @@
-import {useEffect, useRef, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useRef} from "react";
 import {EditorState} from '@codemirror/state';
 import {EditorView, keymap} from '@codemirror/view';
-import {defaultKeymap, indentWithTab} from '@codemirror/commands';
+import {defaultKeymap} from '@codemirror/commands';
 import {basicSetup} from "codemirror";
-import { oneDark } from '@codemirror/theme-one-dark';
+// import {oneDark} from '@codemirror/theme-one-dark';
 import {markdown} from "@codemirror/lang-markdown";
+import styles from "./editor.module.scss"
 
-/* eslint-disable-next-line */
+/* eslint-disable-next-li!1ne */
 export interface EditorProps {
+  setMarkdown: Dispatch<SetStateAction<string[]>>
 }
 
-export function Editor(props: EditorProps) {
+export function Editor({setMarkdown}: EditorProps) {
   const editor = useRef();
-  const [code, setCode] = useState("");
 
   const onUpdate = EditorView.updateListener.of((v) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    setCode(v.state.doc.text.toString());
+    // eslint-disable-next-line no-debugger
+    console.log("doc", v.state.doc);
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    setMarkdown(v.state.doc.text as string[]);
   });
 
 
@@ -25,9 +31,10 @@ export function Editor(props: EditorProps) {
     const startState = EditorState.create({
       extensions: [
         basicSetup, keymap.of(defaultKeymap),
-        oneDark,
+        // oneDark,
         markdown(),
-        onUpdate
+        onUpdate,
+        EditorView.lineWrapping
       ],
     });
 
@@ -40,7 +47,7 @@ export function Editor(props: EditorProps) {
   }, [])
 
 
-  return <div ref={editor}></div>;
+  return <div className={styles.container} ref={editor}></div>;
 
 }
 

@@ -1,0 +1,21 @@
+.tilButton {
+  background-color: black;
+  color: #fff;
+  height: 70px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-size: 20px;
+  border: solid 2px #000;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .14s ease-out;
+
+}
+
+.tilButton:hover {
+  transform: translate(-0.25rem, -0.25rem);
+  box-shadow: 0.25rem 0.25rem #000;
+  color: black;
+  background-color: var(--til-accent-color);
+}
