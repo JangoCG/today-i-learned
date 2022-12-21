@@ -7,6 +7,7 @@ export function Header(props: HeaderProps) {
   return (
     <div className={styles['container']}>
       <h1>Today I learned</h1>
+      <button>login</button>
     </div>
   );
 }
