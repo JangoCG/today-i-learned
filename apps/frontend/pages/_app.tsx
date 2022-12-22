@@ -5,6 +5,8 @@ import { Fira_Code } from '@next/font/google'
 import 'highlight.js/styles/atom-one-dark.css'
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react"
+import {setToken} from "../utils/http-client/axios";
+import SessionLoader from "../components/session-loader/session-loader";
 
 const firaCodeFont = Fira_Code({
   subsets: ['latin'],
@@ -15,15 +17,18 @@ function CustomApp({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session }>) {
+
+
   return (
     <>
       <SessionProvider session={session}>
-
         <Head>
           <title>Welcome to frontend!</title>
         </Head>
         <main className={`${firaCodeFont.className} app`}>
+          <SessionLoader>
           <Component {...pageProps} />
+          </SessionLoader>
         </main>
       </SessionProvider>
     </>

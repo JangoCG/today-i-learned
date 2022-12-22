@@ -35,8 +35,6 @@ export default NextAuth({
   callbacks: {
     async signIn({user, account, profile, email, credentials}) {
       console.debug("[callbacks] signIn");
-      user.idToken = account.id_token // (1)extend the default user with the id token from account
-      console.log('mein user',user)
       return true;
     },
     async redirect({url, baseUrl}) {
@@ -54,11 +52,6 @@ export default NextAuth({
     },
     async session({session, user, token}) {
       session.user.idToken = token.idToken // now I can extend the default session with the idToken from step (1)
-      console.debug("[callbacks] session");
-      console.log("XXXuser", user)
-      console.log("XXXtoken", token)
-      // console.log("meine session", session)
-
 
       return session; // this is the session i will get from my hook
     },

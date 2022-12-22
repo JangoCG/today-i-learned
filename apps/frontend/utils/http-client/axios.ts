@@ -4,4 +4,7 @@ const httpClient = axios.create({
   baseURL: "http://localhost:4200/api"
 });
 
-export default httpClient;
+const setToken = (token: string) => {
+  httpClient.defaults.headers.common['Authorization'] = `Bearer ${token}`
+}
+export  {httpClient, setToken};
