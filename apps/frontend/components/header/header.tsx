@@ -18,6 +18,7 @@ export function Header({ session }: HeaderProps) {
     <div className={styles['container']}>
       <h1>Today I learned</h1>
       <p>{session.user.name}</p>
+      <p>{session.user.idToken}</p>
       <img src={session.user.image} alt="" />
       <button onClick={(() => signOut())}>logout</button>
     </div>

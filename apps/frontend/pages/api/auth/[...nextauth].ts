@@ -2,6 +2,9 @@ import NextAuth from "next-auth/next"
 import GoogleProvider from "next-auth/providers/google"
 import GithubProvider from "next-auth/providers/github"
 import AzureADProvider from "next-auth/providers/azure-ad"
+import { DefaultSession } from "next-auth"
+
+
 export default NextAuth({
   providers: [
     GoogleProvider({
@@ -12,14 +15,14 @@ export default NextAuth({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
+
     AzureADProvider({
       clientId: process.env.AZURE_AD_CLIENT_ID || "",
       clientSecret: process.env.AZURE_AD_CLIENT_SECRET || "",
       tenantId: process.env.AZURE_AD_TENANT_ID,
       authorization: {
         params: {
-          scope:
-            "openid Calendars.Read",
+          scope: 'openid email profile user.read offline_access'
         },
       },
     })
@@ -30,21 +33,34 @@ export default NextAuth({
     session: async (message) => console.debug("[events] session:", message),
   },
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({user, account, profile, email, credentials}) {
       console.debug("[callbacks] signIn");
+      user.idToken = account.id_token // (1)extend the default user with the id token from account
+      console.log('mein user',user)
       return true;
     },
-    async redirect({ url, baseUrl }) {
+    async redirect({url, baseUrl}) {
       console.debug("[callbacks] redirect");
       return baseUrl;
     },
-    async session({ session, user, token }) {
-      console.debug("[callbacks] session");
-      return session;
-    },
-    async jwt({ token, user, account, profile, isNewUser }) {
+    async jwt({token, user, account, profile, isNewUser, ...rest}) {
       console.debug("[callbacks] jwt");
+      console.log("XXXProf", profile)
+      console.log("XXXAcc", account)
+      if(account) {
+        token.idToken = account.id_token
+      }
       return token;
+    },
+    async session({session, user, token}) {
+      session.user.idToken = token.idToken // now I can extend the default session with the idToken from step (1)
+      console.debug("[callbacks] session");
+      console.log("XXXuser", user)
+      console.log("XXXtoken", token)
+      // console.log("meine session", session)
+
+
+      return session; // this is the session i will get from my hook
     },
   },
   secret: process.env.JWT_SECRET
