@@ -8,6 +8,10 @@ export function Index() {
    */
   return (
     <div className={styles.page}>
+
+
+<p>hi</p>
+
     </div>
   );
 }

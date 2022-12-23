@@ -42,4 +42,6 @@ Thumbs.db
 .next
 /.vscode/
 
-.env
+/apps/.env
+/.env
+/apps/backend/.env

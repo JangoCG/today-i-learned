@@ -15,7 +15,6 @@ export default NextAuth({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-
     AzureADProvider({
       clientId: process.env.AZURE_AD_CLIENT_ID || "",
       clientSecret: process.env.AZURE_AD_CLIENT_SECRET || "",

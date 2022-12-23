@@ -1,7 +1,6 @@
 import {useSession} from 'next-auth/react'
 import {useRouter} from 'next/router'
 import ReactMarkdown from "react-markdown";
-import children = ReactMarkdown.propTypes.children;
 import React from "react";
 import {setToken} from "../../utils/http-client/axios";
 
@@ -11,7 +10,6 @@ export interface SessionLoaderProps {
 }
 
 export function SessionLoader({children}: SessionLoaderProps) {
-  const router = useRouter()
   const session = useSession()
 
   if (session.status === 'loading') {
@@ -20,10 +18,6 @@ export function SessionLoader({children}: SessionLoaderProps) {
 
   if (session.status === 'authenticated') {
     setToken(session.data.user.idToken)
-  }
-
-  if (router.pathname === '/auth/login' && session.status === 'authenticated') {
-    router.push('/admin')
   }
 
   return <>{children}</>
