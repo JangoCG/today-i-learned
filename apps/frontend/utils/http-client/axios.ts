@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const httpClient = axios.create({
-  baseURL: "http://localhost:4200/api"
+  baseURL: "http://localhost:3333/api"
 });
 
 const setToken = (token: string) => {

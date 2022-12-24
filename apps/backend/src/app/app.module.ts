@@ -8,6 +8,8 @@ import {ConfigModule} from '@nestjs/config';
 import {UserModule} from './modules/user/user.module';
 import {User} from './modules/user/model/User';
 import {AuthModule} from "./modules/auth/auth.module";
+import {APP_GUARD} from "@nestjs/core";
+import {TilAuthGuard} from "./modules/auth/guard/til-auth.guard";
 
 @Module({
   imports: [
@@ -29,6 +31,13 @@ import {AuthModule} from "./modules/auth/auth.module";
     }),
     AuthModule,
   ],
+  // Enable Global guard
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: TilAuthGuard
+    }
+  ]
 })
 export class AppModule {
   constructor(private dataSource: DataSource) {}

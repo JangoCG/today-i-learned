@@ -1,7 +1,6 @@
 import {Body, Controller, Post} from '@nestjs/common';
-import {plainToInstance} from 'class-transformer';
-import {LoginUserDto} from "../../../../../../../libs/types/src/lib/LoginUserDto";
 import {UserService} from "../service/user.service";
+import {Public} from "../../auth/decorator/public.decorator";
 
 
 @Controller('user')
@@ -11,10 +10,11 @@ export class UserController {
   }
 
   @Post('/login')
+  @Public()
   async login(@Body("idToken") idToken: string): Promise<any> {
 
     console.log(idToken);
-      this.userService.login(idToken)
+      // this.userService.login(idToken)
     // log the ticket payload in the console to see what we have
     // console.log(ticket.getPayload());
   }

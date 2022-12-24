@@ -13,8 +13,8 @@ export function Home(props: HomeProps) {
 
   const {data} = useSession();
 
-  const onCreateTweetClick = (data: FeedForm) => {
-    createTweet({tweetText: data.tweet})
+  const onCreateTweetClick = () => {
+    createTweet({tweetText: "aa"})
       .then(res => {
         console.log(res);
       })
@@ -33,7 +33,7 @@ export function Home(props: HomeProps) {
   return (
     <>
       <Header session={data} />
-      <button onClick={myMethod}>hi</button>
+      <button onClick={onCreateTweetClick}>hi</button>
       <Feed createTweet={onCreateTweetClick}/>
 
     </>
