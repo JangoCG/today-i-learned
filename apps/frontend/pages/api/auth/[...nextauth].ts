@@ -8,6 +8,13 @@ export default NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
+        },
+      },
     }),
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -25,9 +32,9 @@ export default NextAuth({
     }),
   ],
   events: {
-    signIn: async (message) => console.debug('[events] signIn:', message),
-    signOut: async (message) => console.debug('[events] signOut:', message),
-    session: async (message) => console.debug('[events] session:', message),
+    // signIn: async (message) => console.debug('[events] signIn:', message),
+    // signOut: async (message) => console.debug('[events] signOut:', message),
+    // session: async (message) => console.debug('[events] session:', message),
   },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {

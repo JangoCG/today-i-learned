@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
-    "start:backend": "nx serve backend --watch",
+    "start:fullstack": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:backend": "nx serve backend --watch --inspect",
     "start:frontend": "nx serve frontend",
     "build": "nx build",
     "test": "nx test",

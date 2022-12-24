@@ -5,7 +5,7 @@ import styles from './card.module.scss';
 /* eslint-disable-next-line */
 export interface CardProps {
   title: string;
-  markdown: string;
+  markdown: string[];
 }
 
 export function Card({ title, markdown }: CardProps) {
@@ -14,7 +14,8 @@ export function Card({ title, markdown }: CardProps) {
       <div>
         {/*TODO: Look into code mirror as an editor to create the posts*/}
         <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
-          {markdown}
+          {/*join the markdown array using newline characters*/}
+          {markdown && markdown.map((val) => val).join('\r\n')}
         </ReactMarkdown>
       </div>
     </div>
