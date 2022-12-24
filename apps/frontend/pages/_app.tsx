@@ -1,11 +1,11 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.scss';
 import { Fira_Code } from '@next/font/google';
 import 'highlight.js/styles/atom-one-dark.css';
 import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 import SessionLoader from '../components/session-loader/session-loader';
+import './styles.scss';
 
 const firaCodeFont = Fira_Code({
   subsets: ['latin'],

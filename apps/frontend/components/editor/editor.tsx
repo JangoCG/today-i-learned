@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { defaultKeymap } from '@codemirror/commands';
 import { EditorState } from '@codemirror/state';
 import { EditorView, keymap } from '@codemirror/view';
-import { defaultKeymap } from '@codemirror/commands';
 import { basicSetup } from 'codemirror';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 // import {oneDark} from '@codemirror/theme-one-dark';
 import { markdown } from '@codemirror/lang-markdown';
 import styles from './editor.module.scss';

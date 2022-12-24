@@ -1,8 +1,7 @@
 import NextAuth from 'next-auth/next';
-import GoogleProvider from 'next-auth/providers/google';
-import GithubProvider from 'next-auth/providers/github';
 import AzureADProvider from 'next-auth/providers/azure-ad';
-import { DefaultSession } from 'next-auth';
+import GithubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
 
 export default NextAuth({
   providers: [
@@ -37,7 +36,7 @@ export default NextAuth({
     },
     async redirect({ url, baseUrl }) {
       console.debug('[callbacks] redirect');
-      return baseUrl;
+      return url;
     },
     async jwt({ token, user, account, profile, isNewUser, ...rest }) {
       console.debug('[callbacks] jwt');
@@ -50,7 +49,6 @@ export default NextAuth({
     },
     async session({ session, user, token }) {
       session.user.idToken = token.idToken; // now I can extend the default session with the idToken from step (1)
-
       return session; // this is the session i will get from my hook
     },
   },

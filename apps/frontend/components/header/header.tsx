@@ -1,7 +1,6 @@
+import { Session } from 'next-auth';
 import { signIn, signOut } from 'next-auth/react';
 import styles from './header.module.scss';
-import { prettyJson } from '@today-i-learned/utils';
-import { Session } from 'next-auth';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {
@@ -22,7 +21,9 @@ export function Header({ session }: HeaderProps) {
       <p>{session.user.name}</p>
       <p>{session.user.idToken}</p>
       <img src={session.user.image} alt="" />
-      <button onClick={() => signOut()}>logout</button>
+      <button onClick={() => signOut({ callbackUrl: '/landing' })}>
+        logout
+      </button>
     </div>
   );
 }

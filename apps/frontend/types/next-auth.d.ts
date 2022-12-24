@@ -1,5 +1,5 @@
-import NextAuth, { DefaultSession, DefaultUser } from 'next-auth';
-import { JWT } from 'next-auth/jwt';
+import { DefaultSession } from 'next-auth';
+import 'next-auth/jwt';
 
 // Module Augmentation to extend the Session and User object
 declare module 'next-auth' {

@@ -1,6 +1,6 @@
-import styles from './card.module.scss';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
+import styles from './card.module.scss';
 
 /* eslint-disable-next-line */
 export interface CardProps {

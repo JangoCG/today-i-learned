@@ -1,7 +1,7 @@
-import Feed, { FeedForm } from '../../components/feed/feed';
-import { createTweet } from '../../services/tweetService';
-import Header from '../../components/header/header';
 import { useSession } from 'next-auth/react';
+import Feed from '../../components/feed/feed';
+import Header from '../../components/header/header';
+import { createTweet } from '../../services/tweetService';
 import { httpClient } from '../../utils/http-client/axios';
 
 /* eslint-disable-next-line */

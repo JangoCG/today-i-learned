@@ -1,6 +1,6 @@
+import { useRouter } from 'next/router';
 import Card from '../card/card';
 import styles from './feed.module.scss';
-import { useRouter } from 'next/router';
 
 export interface FeedProps {
   createTweet: (data: unknown) => void;

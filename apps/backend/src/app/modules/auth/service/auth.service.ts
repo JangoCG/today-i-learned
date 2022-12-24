@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { googleClient } from '../../user/google-client';
 import { ConfigService } from '@nestjs/config';
+import { googleClient } from '../../user/google-client';
 
 @Injectable()
 export class AuthService {

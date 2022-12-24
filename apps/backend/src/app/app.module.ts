@@ -1,15 +1,17 @@
 import { Module } from '@nestjs/common';
 
-import { TweetsModule } from './modules/tweets/tweets.module';
+import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
-import { Tweet } from './modules/tweets/model/Tweet';
-import { ConfigModule } from '@nestjs/config';
-import { UserModule } from './modules/user/user.module';
-import { User } from './modules/user/model/User';
 import { AuthModule } from './modules/auth/auth.module';
-import { APP_GUARD } from '@nestjs/core';
 import { TilAuthGuard } from './modules/auth/guard/til-auth.guard';
+import { Post } from './modules/post/model/Post';
+import { PostModule } from './modules/post/post.module';
+import { Tweet } from './modules/tweets/model/Tweet';
+import { TweetsModule } from './modules/tweets/tweets.module';
+import { User } from './modules/user/model/User';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { TilAuthGuard } from './modules/auth/guard/til-auth.guard';
       username: 'postgres',
       password: 'docker',
       database: 'twitter-db',
-      entities: [Tweet, User],
+      entities: [Tweet, User, Post],
       synchronize: true,
     }),
     ConfigModule.forRoot({
@@ -30,6 +32,7 @@ import { TilAuthGuard } from './modules/auth/guard/til-auth.guard';
       envFilePath: '.env',
     }),
     AuthModule,
+    PostModule,
   ],
   // Enable Global guard
   providers: [

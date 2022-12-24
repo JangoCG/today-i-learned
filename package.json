@@ -16,7 +16,6 @@
       "eslint --fix"
     ]
   },
-
   "private": true,
   "dependencies": {
     "@codemirror/commands": "^6.1.2",
@@ -98,6 +97,7 @@
     "lint-staged": "^13.1.0",
     "nx": "15.2.4",
     "prettier": "^2.6.2",
+    "prettier-plugin-organize-imports": "^3.2.1",
     "react-test-renderer": "18.2.0",
     "sass": "1.55.0",
     "ts-jest": "28.0.5",

@@ -1,9 +1,9 @@
-import styles from './index.module.scss';
-import Editor from '../../components/editor/editor';
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
-import { useState } from 'react';
+import Editor from '../../components/editor/editor';
 import TilButton from '../../components/til-button/til-button';
+import styles from './index.module.scss';
 
 /* eslint-disable-next-line */
 export interface CreateProps {}

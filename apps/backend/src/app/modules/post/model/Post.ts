@@ -1,12 +1,12 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Tweet {
+export class Post {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  content: string;
+  markdown: string;
 
   @Column()
   author: string;

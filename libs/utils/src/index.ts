@@ -1,2 +1,2 @@
-export * from './lib/utils';
 export * from './lib/prettyJson';
+export * from './lib/utils';

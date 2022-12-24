@@ -1,7 +1,7 @@
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { CreateTweetDto } from '@today-i-learned/types';
-import { TweetService } from '../../service/tweet/tweet.service';
 import { TilAuthGuard } from '../../../auth/guard/til-auth.guard';
+import { TweetService } from '../../service/tweet/tweet.service';
 
 @Controller('tweets')
 export class TweetController {

@@ -1,6 +1,4 @@
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import ReactMarkdown from 'react-markdown';
 import React from 'react';
 import { setToken } from '../../utils/http-client/axios';
 
