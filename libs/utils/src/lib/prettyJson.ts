@@ -1,3 +1,3 @@
-export  function prettyJson(object: unknown) {
+export function prettyJson(object: unknown) {
   return JSON.stringify(object, null, 2);
 }

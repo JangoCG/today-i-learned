@@ -8,10 +8,7 @@ export function Index() {
    */
   return (
     <div className={styles.page}>
-
-
-<p>hi</p>
-
+      <p>hi</p>
     </div>
   );
 }

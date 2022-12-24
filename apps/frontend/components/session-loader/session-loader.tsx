@@ -1,26 +1,26 @@
-import {useSession} from 'next-auth/react'
-import {useRouter} from 'next/router'
-import ReactMarkdown from "react-markdown";
-import React from "react";
-import {setToken} from "../../utils/http-client/axios";
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import ReactMarkdown from 'react-markdown';
+import React from 'react';
+import { setToken } from '../../utils/http-client/axios';
 
 /* eslint-disable-next-line */
 export interface SessionLoaderProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export function SessionLoader({children}: SessionLoaderProps) {
-  const session = useSession()
+export function SessionLoader({ children }: SessionLoaderProps) {
+  const session = useSession();
 
   if (session.status === 'loading') {
-    return <p>loading</p>
+    return <p>loading</p>;
   }
 
   if (session.status === 'authenticated') {
-    setToken(session.data.user.idToken)
+    setToken(session.data.user.idToken);
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }
 
 export default SessionLoader;

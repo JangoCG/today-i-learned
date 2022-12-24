@@ -1,5 +1,5 @@
-import Document, {Head, Html, Main, NextScript} from 'next/document';
-import React from "react";
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import React from 'react';
 
 export default class _Document extends Document {
   render() {
@@ -7,8 +7,8 @@ export default class _Document extends Document {
       <Html>
         <Head />
         <body>
-        <Main />
-        <NextScript />
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );

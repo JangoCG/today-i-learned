@@ -1,9 +1,9 @@
-import Card from "../card/card";
-import styles from "./feed.module.scss"
-import {useRouter} from 'next/router';
+import Card from '../card/card';
+import styles from './feed.module.scss';
+import { useRouter } from 'next/router';
 
 export interface FeedProps {
-  createTweet: (data: unknown) => void
+  createTweet: (data: unknown) => void;
 }
 
 export interface FeedForm {
@@ -51,7 +51,7 @@ import Logo from 'public/images/logo.svg';
 5. Use the Component
 \`\`\`js
 <Logo className="h-8 w-auto sm:h-10" alt="Site Title" />
-\`\`\``
+\`\`\``;
 const mockMarkDown1 = `
 
 # Ruby memoization with nil values
@@ -83,7 +83,7 @@ def ticket
   @ticket = Ticket.find_by(owner:)
 end
 ~~~
-`
+`;
 
 const mockMarkDown2 = `
 # What is  <Component {…props} />
@@ -98,7 +98,7 @@ function App2() {
   return <Greeting {...props} />;
 }
 ~~~
-`
+`;
 
 const mockMarkDown3 = `
 ~~~js
@@ -111,26 +111,35 @@ ReactDOM.render(
   <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{'# Your markdown here'}</ReactMarkdown>,
   document.querySelector('#content')
 )
-~~~`
+~~~`;
 
-export function Feed({createTweet}: FeedProps) {
+export function Feed({ createTweet }: FeedProps) {
   const router = useRouter();
 
   const navigateToCreateNewTilPage = () => {
-    router.push('/create')
-  }
+    router.push('/create');
+  };
   return (
     <>
       <div className={styles.container}>
         <div className={styles.ctaContainer}>
-          <h1 className={styles.ctaText}>Share your new knowledge. <br/>
+          <h1 className={styles.ctaText}>
+            Share your new knowledge. <br />
             Someone out there will need it.
           </h1>
-          <button className={styles.createTilBtn} onClick={navigateToCreateNewTilPage}>Create a new TIL</button>
+          <button
+            className={styles.createTilBtn}
+            onClick={navigateToCreateNewTilPage}
+          >
+            Create a new TIL
+          </button>
         </div>
-        <Card title={"this is the title"} markdown={mockMarkDown3}/>
-        <Card title={"some tutorial xoxo mockMarkdown"} markdown={mockMarkdown}/>
-        <Card title={"Another card"} markdown={mockMarkDown2}/>
+        <Card title={'this is the title'} markdown={mockMarkDown3} />
+        <Card
+          title={'some tutorial xoxo mockMarkdown'}
+          markdown={mockMarkdown}
+        />
+        <Card title={'Another card'} markdown={mockMarkDown2} />
       </div>
     </>
   );

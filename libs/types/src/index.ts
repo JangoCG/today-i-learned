@@ -1,3 +1,3 @@
-import {CreateTweetDto} from "./lib/CreateTweetDto";
+import { CreateTweetDto } from './lib/CreateTweetDto';
 
-export * from "./lib/CreateTweetDto"
+export * from './lib/CreateTweetDto';

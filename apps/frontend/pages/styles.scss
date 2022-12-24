@@ -7,10 +7,13 @@ html {
   tab-size: 4;
   scroll-behavior: smooth;
   ::selection {
-    background-color: var(--til-accent-color)
+    background-color: var(--til-accent-color);
   }
-  input, textarea, button {font-family: inherit}
-
+  input,
+  textarea,
+  button {
+    font-family: inherit;
+  }
 }
 body {
   --twitter-blue: #50b7f5;
@@ -20,7 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding-right:200px;
+  padding-right: 200px;
   padding-left: 200px;
   padding-bottom: 20px;
   background-color: white;

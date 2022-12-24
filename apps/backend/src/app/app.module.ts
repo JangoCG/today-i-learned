@@ -1,15 +1,15 @@
-import {Module} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 
-import {TweetsModule} from './modules/tweets/tweets.module';
-import {TypeOrmModule} from '@nestjs/typeorm';
-import {DataSource} from 'typeorm';
-import {Tweet} from './modules/tweets/model/Tweet';
-import {ConfigModule} from '@nestjs/config';
-import {UserModule} from './modules/user/user.module';
-import {User} from './modules/user/model/User';
-import {AuthModule} from "./modules/auth/auth.module";
-import {APP_GUARD} from "@nestjs/core";
-import {TilAuthGuard} from "./modules/auth/guard/til-auth.guard";
+import { TweetsModule } from './modules/tweets/tweets.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { DataSource } from 'typeorm';
+import { Tweet } from './modules/tweets/model/Tweet';
+import { ConfigModule } from '@nestjs/config';
+import { UserModule } from './modules/user/user.module';
+import { User } from './modules/user/model/User';
+import { AuthModule } from './modules/auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { TilAuthGuard } from './modules/auth/guard/til-auth.guard';
 
 @Module({
   imports: [
@@ -35,9 +35,9 @@ import {TilAuthGuard} from "./modules/auth/guard/til-auth.guard";
   providers: [
     {
       provide: APP_GUARD,
-      useClass: TilAuthGuard
-    }
-  ]
+      useClass: TilAuthGuard,
+    },
+  ],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) {}

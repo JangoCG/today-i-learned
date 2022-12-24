@@ -1,22 +1,21 @@
-import {AppProps} from 'next/app';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.scss';
-import {Fira_Code} from '@next/font/google'
-import 'highlight.js/styles/atom-one-dark.css'
-import {Session} from "next-auth";
-import {SessionProvider} from "next-auth/react"
-import SessionLoader from "../components/session-loader/session-loader";
+import { Fira_Code } from '@next/font/google';
+import 'highlight.js/styles/atom-one-dark.css';
+import { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
+import SessionLoader from '../components/session-loader/session-loader';
 
 const firaCodeFont = Fira_Code({
   subsets: ['latin'],
-  weight: '400'
-})
+  weight: '400',
+});
 
-function CustomApp(
-  {
-    Component,
-    pageProps: {session, ...pageProps},
-  }: AppProps<{ session: Session }>) {
+function CustomApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps<{ session: Session }>) {
   return (
     <>
       <SessionProvider session={session}>

@@ -1,8 +1,8 @@
-import {Injectable} from '@nestjs/common';
-import {InjectRepository} from '@nestjs/typeorm';
-import {Repository} from 'typeorm';
-import {User} from '../model/User';
-import {AuthService} from "../../auth/service/auth.service";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from '../model/User';
+import { AuthService } from '../../auth/service/auth.service';
 
 @Injectable()
 export class UserService {
@@ -13,13 +13,18 @@ export class UserService {
   ) {}
 
   async login(idToken: string) {
-    const loginTicket = await this.authService.verifyIdTokenAndReturnLoginTicket(idToken)
+    const loginTicket =
+      await this.authService.verifyIdTokenAndReturnLoginTicket(idToken);
     const payload = loginTicket.getPayload();
     const user = await this.userRepository.findOneBy({
       email: loginTicket.getPayload().email,
     });
     if (!user) {
-      return this.userRepository.save({email:  payload.email , name: payload.name, image: payload.picture});
+      return this.userRepository.save({
+        email: payload.email,
+        name: payload.name,
+        image: payload.picture,
+      });
     } else {
       console.log(user);
       return user;

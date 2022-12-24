@@ -12,8 +12,9 @@ const nextConfig = {
       {
         source: '/',
         destination: '/home',
-        permanent: true
-      }]
+        permanent: true,
+      },
+    ];
   },
   nx: {
     // Set this to true if you would like to to use SVGR

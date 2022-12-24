@@ -7,10 +7,11 @@
 */
 
 .container {
-  margin-top:5px;
+  margin-top: 5px;
   border: 2px solid #000;
   border-radius: 8px;
-  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out,
+    -webkit-transform 200ms ease-in-out;
   display: flex;
   flex-direction: column;
   padding-left: 40px;
@@ -19,7 +20,7 @@
   text-align: justify;
 }
 
-.container:hover{
+.container:hover {
   box-shadow: 6px 6px 0 0 #000;
   transform: translate(-6px, -6px);
 }

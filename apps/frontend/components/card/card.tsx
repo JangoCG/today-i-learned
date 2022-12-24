@@ -1,6 +1,6 @@
 import styles from './card.module.scss';
-import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
 
 /* eslint-disable-next-line */
 export interface CardProps {
@@ -8,7 +8,7 @@ export interface CardProps {
   markdown: string;
 }
 
-export function Card({title, markdown}: CardProps) {
+export function Card({ title, markdown }: CardProps) {
   return (
     <div className={styles.container}>
       <div>

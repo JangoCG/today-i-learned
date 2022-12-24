@@ -1,12 +1,10 @@
-import {Injectable, UnauthorizedException} from '@nestjs/common';
-import {googleClient} from "../../user/google-client";
-import {ConfigService} from "@nestjs/config";
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { googleClient } from '../../user/google-client';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
-
-  constructor(private configService: ConfigService) {
-  }
+  constructor(private configService: ConfigService) {}
 
   public async verifyIdTokenAndReturnLoginTicket(idToken: string) {
     try {
@@ -19,5 +17,4 @@ export class AuthService {
       throw new UnauthorizedException();
     }
   }
-
 }
