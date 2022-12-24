@@ -13,7 +13,7 @@ export class TilAuthGuard extends AuthGuard('custom') {
   canActivate(context: ExecutionContext) {
     const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
       context.getHandler(),
-             context.getClass(),
+                context.getClass(),
     ]);
     if (isPublic) {
       return true;
